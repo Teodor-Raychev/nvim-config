@@ -31,20 +31,29 @@ keymap.set("n", "<C-m>", "<C-i>", opts)
 keymap.set("n", "te", "tabedit", opts)
 -- Do not yank with x
 -- keymap.set("n", "x", '"_x')
-
--- Increment/decrement Integer num
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
+-- Increment/decrement Integer num
 -- Delete word backwards
 keymap.set("n", "dw", 'vb"_d')
+keymap.set("v", "<", "<gv")
+keymap.set("n", ">", ">gv")
+keymap.set("n", ">", ">gv")
+keymap.set("v", "<", "<gv")
 
+--move tabs(buffers) left/right
+-- Go to definition
+keymap.set({ "n", "v" }, "<C-b>", "gd")
+
+keymap.set("n", "<A-w>", [[:bd<Enter>]])
 -- Select All
 keymap.set("n", "<C-a>", "gg<S-v>G")
-
+--- Comment selected
+keymap.set({ "n", "v" }, "<leader>c", "gc")
 -- Move lines up and down while in visual mode.
-keymap.set("v", "j", ":m '>+1<CR>gv=gv")
-keymap.set("v", "k", ":m '<-2<CR>gv=gv")
+keymap.set("v", "<down>", ":m '>+1<CR>gv=gv")
+keymap.set("v", "<up>", ":m '<-2<CR>gv=gv")
 -- Keep cursor as move.
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
