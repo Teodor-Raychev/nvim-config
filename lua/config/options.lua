@@ -4,3 +4,4 @@
 
 -- Enable underculr Terminal dependend Example for Fish:
 ---vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[set conceallevel=0]])
