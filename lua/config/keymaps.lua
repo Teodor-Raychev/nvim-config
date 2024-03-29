@@ -2,9 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
@@ -46,11 +43,6 @@ keymap.set("v", "<", "<gv")
 -- Go to definition
 keymap.set({ "n", "v" }, "<C-b>", "gd")
 
-keymap.set("n", "<A-w>", [[:bd<Enter>]])
--- Select All
-keymap.set("n", "<C-a>", "gg<S-v>G")
---- Comment selected
-keymap.set({ "n", "v" }, "<leader>c", "gc")
 -- Move lines up and down while in visual mode.
 keymap.set("v", "<down>", ":m '>+1<CR>gv=gv")
 keymap.set("v", "<up>", ":m '<-2<CR>gv=gv")
@@ -72,3 +64,12 @@ keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 keymap.set("n", "<leader>f", vim.lsp.buf.format)
 -- search file and replace:
 keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Selections
+keymap.set("n", "<A-w>", [[:bd<Enter>]])
+-- Select All
+keymap.set("n", "<C-a>", "gg<S-v>G")
+-- higlight and copy word
+keymap.set("n", "<leader>h", "viw<leader>y")
+-- higlight and copy whole block
+keymap.set("n", "<leader>H", "viW<leader>y")
